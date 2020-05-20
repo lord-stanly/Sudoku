@@ -1,61 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
+    android:padding="30dp"
+    android:orientation="horizontal" >
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/background_dark"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
-
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center" >
         <TextView
-            android:id="@+id/textView"
-            android:layout_width="243dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="100dp"
-            android:gravity="center"
-            android:padding="30dp"
+            android:layout_marginBottom="25dp"
             android:text="@string/main_title"
-            android:textColor="@android:color/background_light"
             android:textSize="24.5sp" />
 
         <Button
             android:id="@+id/continue_button"
-            android:layout_width="243dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:text="@string/continue_label" />
 
         <Button
             android:id="@+id/new_button"
-            android:layout_width="243dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:text="@string/new_game_label" />
 
         <Button
             android:id="@+id/about_button"
-            android:layout_width="243dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:text="@string/about_label" />
 
         <Button
             android:id="@+id/exit_button"
-            android:layout_width="243dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:text="@string/exit_label" />
     </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
