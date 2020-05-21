@@ -27,12 +27,12 @@ public class PuzzleView extends View {
     private int selY; //координата y выделенной области
     private final Rect selRect = new Rect(); // прямоугольник
     @Override
-    protected void onSizeChanged(int w, int h, int oidw, int oldh){
+    protected void onSizeChanged(int w, int h, int oldw, int oldh){
         width = w / 9f;
         height = h / 9f;
         getRect(selX, selY, selRect);
         Log.d(TAG, "onSizeChanged: width " + width + ", height" + height);
-        super.onSizeChanged(w, h, oldh, oldh);
+        super.onSizeChanged(w, h, oldw, oldh);
     }
     private void getRect(int x, int y, Rect rect){
         rect.set((int) (x * width),
@@ -52,15 +52,15 @@ public class PuzzleView extends View {
         Paint dark = new Paint();
         dark.setColor(getResources().getColor(R.color.puzzle_dark));
         Paint hilite = new Paint();
-        dark.setColor(getResources().getColor(R.color.puzzle_hilite));
+        hilite.setColor(getResources().getColor(R.color.puzzle_hilite));
         Paint light = new Paint();
-        dark.setColor(getResources().getColor(R.color.puzzle_light));
+        light.setColor(getResources().getColor(R.color.puzzle_light));
         //рисование вспомогательных линий решетки
         for(int i = 0; i < 9; i++){
             canvas.drawLine(0, i * height, getWidth(), i * height, light);
-            canvas.drawLine(0, i * height + 1, getWidth(), i * height, hilite);
+            canvas.drawLine(0, i * height + 1, getWidth(), i * height + 1, hilite);
             canvas.drawLine(i * width, 0, i * width, getHeight(), light);
-            canvas.drawLine(i * width + 1, 0, i * width, getHeight(), hilite);
+            canvas.drawLine(i * width + 1, 0, i * width + 1, getHeight(), hilite);
         }
         //рисование основных линий решетки
         for(int i =0; i <9; i++){
@@ -99,7 +99,7 @@ public class PuzzleView extends View {
         Rect r = new Rect();
         for(int i = 0; i < 9; i++){
             for(int j = 0; j < 9; j++){
-                int movesleft = 9 - game.getUsedTitles(i, j).length;
+                int movesleft = 9 - game.getUsedTiles(i, j).length;
                 if(movesleft < c.length){
                     getRect(i, j, r);
                     hint.setColor(c[movesleft]);

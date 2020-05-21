@@ -13,8 +13,8 @@ public class Keypad extends Dialog {
     private View keypad;
     private final int useds[];
     private final PuzzleView puzzleView;
-    public Keypad(Context contex, int used[], PuzzleView puzzleView){
-        super(contex);
+    public Keypad(Context context, int useds[], PuzzleView puzzleView){
+        super(context);
         this.useds = useds;
         this.puzzleView = puzzleView;
     }
