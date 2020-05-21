@@ -1,12 +1,15 @@
 package ru.mail.fizikello.sudoku;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity implements OnClickListener{
@@ -29,16 +32,19 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
         exitButton.setOnClickListener(this);
     }
 
-//оброботчик нажатий кнопки about
+//оброботчик нажатий кнопки
     public void onClick(View v) {
         switch(v.getId()){
             case R.id.about_button:
                 Intent i = new Intent(this, About.class);
                 startActivity(i);
                 break;
+            case R.id.new_button:
+                openNewGameDialog();
+                break;
         }
     }
-//ресуем меню
+//рисуем меню
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
@@ -54,5 +60,22 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
                 return true;
         }
         return false;
+    }
+//Метод openNewGameDialog() занимается созданием пользовательского интерфейса для списка уровней сложности:
+    private static final String TAG = "Sudoku";
+    private void openNewGameDialog(){
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.new_game_title)
+                    .setItems(R.array.difficulty,
+            new DialogInterface.OnClickListener(){
+                 public void onClick(DialogInterface dialogInterface, int i)
+                 {
+                    startGame(i);
+                 }
+            }).show();
+    }
+    private void startGame(int i){
+        Log.d(TAG, "clicked on " + i);
+        //Запуск игры
     }
 }

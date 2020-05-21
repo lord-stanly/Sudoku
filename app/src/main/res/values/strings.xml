@@ -18,4 +18,10 @@
     <string name="music_summary">Играть фоновую музыку</string>
     <string name="hints_title">Рекомендации</string>
     <string name="hints_summary">Показывать рекомендации во время игры</string>
+
+    <string name="new_game_title">Сложность</string>
+    <string name="easy_label">Easy</string>
+    <string name="medium_label">Medium</string>
+    <string name="hard_label">Hard</string>
+
 </resources>
