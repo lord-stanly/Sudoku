@@ -42,6 +42,9 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
             case R.id.new_button:
                 openNewGameDialog();
                 break;
+            case R.id.exit_button:
+                finish();
+                break;
         }
     }
 //рисуем меню
@@ -77,5 +80,8 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
     private void startGame(int i){
         Log.d(TAG, "clicked on " + i);
         //Запуск игры
+        Intent intent = new Intent(this, Game.class);
+        intent.putExtra(Game.KEY_DIFFICULTY, i);
+        startActivity(intent);
     }
 }
