@@ -1,18 +1,15 @@
 package ru.mail.fizikello.sudoku;
 
-
-
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 
+import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends Activity implements OnClickListener{
+public class MainActivity extends AppCompatActivity implements OnClickListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,9 +27,9 @@ public class MainActivity extends Activity implements OnClickListener{
 
         View exitButton = findViewById(R.id.exit_button);
         exitButton.setOnClickListener(this);
-
     }
 
+//оброботчик нажатий кнопки about
     public void onClick(View v) {
         switch(v.getId()){
             case R.id.about_button:
@@ -41,15 +38,13 @@ public class MainActivity extends Activity implements OnClickListener{
                 break;
         }
     }
-
+//ресуем меню
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        super.onCreateOptionsMenu(menu);
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu, menu);
+        getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
-
+//оброботчик нажатий на вкладку меню
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId())
